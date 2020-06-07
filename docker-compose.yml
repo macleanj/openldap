@@ -1,13 +1,9 @@
 version: '3.5'
 
-# docker run --volume /data/slapd/database:/var/lib/ldap \
-# --volume /data/slapd/config:/etc/ldap/slapd.d \
-# --detach osixia/openldap:1.3.0
-
 services:
   openldap:
     # https://github.com/osixia/docker-openldap
-    image: osixia/openldap:1.2.2
+    image: osixia/openldap:1.3.0
     container_name: openldap
     hostname: "openldap"
     environment:
@@ -18,7 +14,7 @@ services:
       LDAP_ADMIN_PASSWORD: "admin" # user: cn=admin,dc=example,dc=org
       LDAP_CONFIG_PASSWORD: "config"
       LDAP_READONLY_USER: "true"
-      LDAP_READONLY_USER_USERNAME: "readonly"
+      LDAP_READONLY_USER_USERNAME: "readonly" # user: cn=readonly,dc=example,dc=org
       LDAP_READONLY_USER_PASSWORD: "readonly"
       LDAP_RFC2307BIS_SCHEMA: "false"
       LDAP_BACKEND: "mdb"
